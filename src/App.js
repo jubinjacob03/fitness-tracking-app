@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HeaderFooterProvider from './HeaderFooter/HeaderFooterProvider';
+import Workout from './components/Workout';
+import Progress from './components/Progress';
+import Hero from './components/Hero';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+<Router>
+    <HeaderFooterProvider>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/workout" element={<Workout />} />
+        <Route path="/progress" element={<Progress />} />
+      </Routes>
+    </HeaderFooterProvider>
+  </Router>
+);
 
 export default App;
